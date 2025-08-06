@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "390265960050",
+    "project_id": "uj2114nigam",
+    "storage_bucket": "uj2114nigam.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390265960050:android:84f76449b127130fccb4eb",
+        "android_client_info": {
+          "package_name": "com.uj.echocrisismain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsESd05qf6rWjeKErCd-juW7VDTBFdpwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

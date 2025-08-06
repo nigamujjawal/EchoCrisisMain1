@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.uj.echocrisismain">
+
+    <!-- Permission for internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="EchoCrisis"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EchoCrisis">
+
+        <!-- Launcher screen (Login) -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:label="Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Registration screen -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:label="Register" />
+
+        <!-- Profile setup screen -->
+        <activity
+            android:name=".ProfileSetupActivity"
+            android:exported="false" />
+
+        <!-- Profile viewing screen -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <!-- Emergency contact screen -->
+        <activity
+            android:name=".EmergencyContact"
+            android:exported="false" />
+
+        <!-- Dashboard/Main screen -->
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:label="Dashboard" />
+
+    </application>
+</manifest>
