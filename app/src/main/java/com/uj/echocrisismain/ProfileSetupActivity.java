@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,29 +47,42 @@ public class ProfileSetupActivity extends AppCompatActivity {
         checkUrgentHelp = findViewById(R.id.checkUrgentHelp);
         btnSaveProfile = findViewById(R.id.btnSaveProfile);
 
-        // Set Gender Options in Spinner
+        // Set Gender Options
         ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this,
                 R.array.gender_array, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGender.setAdapter(genderAdapter);
 
-        // Date Picker for Date of Birth field
+        // Date Picker
         etDOB.setOnClickListener(v -> showDatePicker());
 
-        // Save Profile and Pass Data to ProfileActivity
+        // Save Profile
         btnSaveProfile.setOnClickListener(v -> saveProfileData());
     }
 
+    private void showDatePicker() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    String date = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                    etDOB.setText(date);
+                }, year, month, day);
+        datePickerDialog.show();
+    }
+
     private void saveProfileData() {
-        // Get user UID
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if (firebaseUser == null) {
             Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
             return;
         }
+
         String uid = firebaseUser.getUid();
 
-        // Create profile object
         UserProfile profile = new UserProfile(
                 etName.getText().toString(),
                 etPhone.getText().toString(),
@@ -86,45 +98,19 @@ public class ProfileSetupActivity extends AppCompatActivity {
                 checkUrgentHelp.isChecked()
         );
 
-        // Save to Firebase Realtime Database
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
         ref.child(uid).setValue(profile)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(this, "Profile saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Profile saved successfully", Toast.LENGTH_SHORT).show();
 
-                    // Pass data to ProfileActivity
-                    Intent intent = new Intent(ProfileSetupActivity.this, ProfileActivity.class);
-                    intent.putExtra("name", profile.name);
-                    intent.putExtra("phone", profile.phone);
-                    intent.putExtra("email", profile.email);
-                    intent.putExtra("dob", profile.dob);
-                    intent.putExtra("location", profile.location);
-                    intent.putExtra("state", profile.state);
-                    intent.putExtra("crisisType", profile.crisisType);
-                    intent.putExtra("recoveryStage", profile.recoveryStage);
-                    intent.putExtra("occupation", profile.occupation);
-                    intent.putExtra("medicalNeeds", profile.medicalNeeds);
-                    intent.putExtra("gender", profile.gender);
-                    intent.putExtra("urgentHelp", profile.urgentHelp);
+                    // 🔁 Go to DashboardActivity (with 4 buttons)
+                    Intent intent = new Intent(ProfileSetupActivity.this, DashboardActivity.class);
+                    intent.putExtra("username", profile.name); // optional welcome message
                     startActivity(intent);
                     finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Failed to save profile: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
-    }
-
-    private void showDatePicker() {
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                (view, selectedYear, selectedMonth, selectedDay) -> {
-                    String date = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                    etDOB.setText(date);
-                }, year, month, day);
-        datePickerDialog.show();
     }
 }

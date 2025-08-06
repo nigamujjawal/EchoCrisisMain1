@@ -7,24 +7,38 @@
     android:gravity="center"
     android:background="#FAFAFA">
 
+    <!-- App Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome to EchoCrisis!"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:paddingBottom="24dp"/>
+        android:paddingBottom="8dp"/>
 
+    <!-- Personalized Welcome Message -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Set Profile Button -->
     <Button
         android:id="@+id/btnSetProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Set Profile" />
 
+    <!-- Emergency Contact Button -->
     <Button
         android:id="@+id/btnEmergencyContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Emergency Contacts"
         android:layout_marginTop="16dp" />
+
 </LinearLayout>

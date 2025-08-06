@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uj.echocrisismain">
 
-    <!-- Permission for internet access -->
+    <!-- Internet permission for Firebase or network access -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EchoCrisis">
 
-        <!-- Launcher screen (Login) -->
+        <!-- Launcher Activity: Login -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -24,32 +24,63 @@
             </intent-filter>
         </activity>
 
-        <!-- Registration screen -->
+        <!-- Register screen -->
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:label="Register" />
 
-        <!-- Profile setup screen -->
+        <!-- Profile Setup screen -->
         <activity
             android:name=".ProfileSetupActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Profile Setup" />
 
-        <!-- Profile viewing screen -->
+        <!-- Profile Viewing screen -->
         <activity
             android:name=".ProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Profile" />
 
-        <!-- Emergency contact screen -->
+        <!-- Emergency Contact screen -->
         <activity
             android:name=".EmergencyContact"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Emergency Contact" />
 
-        <!-- Dashboard/Main screen -->
+        <!-- MainActivity2: Welcome / intermediate screen -->
         <activity
             android:name=".MainActivity2"
             android:exported="false"
+            android:label="Welcome" />
+
+        <!-- ✅ Dashboard screen (Where 4 buttons are shown) -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false"
             android:label="Dashboard" />
 
+        <!-- 4 Functional Screens -->
+        <activity
+            android:name=".MentalSupportActivity"
+            android:exported="false"
+            android:label="Mental Support" />
+
+        <activity
+            android:name=".LegalHelpActivity"
+            android:exported="false"
+            android:label="Legal Help" />
+
+        <activity
+            android:name=".SchemeActivity"
+            android:exported="false"
+            android:label="Government Schemes" />
+
+        <activity
+            android:name=".ShelterActivity"
+            android:exported="false"
+            android:label="Nearby Shelters" />
+
     </application>
+
 </manifest>
