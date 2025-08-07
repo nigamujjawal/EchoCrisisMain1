@@ -3,7 +3,6 @@ package com.uj.echocrisismain;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -58,18 +57,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkUserProfile(String uid) {
-        DocumentReference userDoc = db.collection("users").document(uid);
-        userDoc.get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                // Profile exists → go to dashboard
-                startActivity(new Intent(LoginActivity.this, MainActivity2.class));
-            } else {
-                // Profile doesn't exist → go to profile setup
-                startActivity(new Intent(LoginActivity.this, ProfileSetupActivity.class));
-            }
-            finish();
-        }).addOnFailureListener(e -> {
-            Toast.makeText(this, "Failed to check profile", Toast.LENGTH_SHORT).show();
-        });
+        // ✅ Firestore collection "users" with document uid
+        db.collection("users").document(uid).get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // 🔁 Profile exists – go to Dashboard
+                        startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                    } else {
+                        // 👤 First time – go to Profile Setup
+                        startActivity(new Intent(LoginActivity.this, ProfileSetupActivity.class));
+                    }
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to check profile: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 }

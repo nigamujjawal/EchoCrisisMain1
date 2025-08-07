@@ -3,19 +3,13 @@ package com.uj.echocrisismain;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
 
@@ -27,10 +21,15 @@ public class ProfileSetupActivity extends AppCompatActivity {
     CheckBox checkUrgentHelp;
     Button btnSaveProfile;
 
+    FirebaseFirestore db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setup);
+
+        // Initialize Firebase Firestore
+        db = FirebaseFirestore.getInstance();
 
         // Initialize Views
         etName = findViewById(R.id.etName);
@@ -98,12 +97,11 @@ public class ProfileSetupActivity extends AppCompatActivity {
                 checkUrgentHelp.isChecked()
         );
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
-        ref.child(uid).setValue(profile)
+        db.collection("users").document(uid).set(profile)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Profile saved successfully", Toast.LENGTH_SHORT).show();
 
-                    // 🔁 Go to DashboardActivity (with 4 buttons)
+                    // 🔁 Go to DashboardActivity
                     Intent intent = new Intent(ProfileSetupActivity.this, DashboardActivity.class);
                     intent.putExtra("username", profile.name); // optional welcome message
                     startActivity(intent);
