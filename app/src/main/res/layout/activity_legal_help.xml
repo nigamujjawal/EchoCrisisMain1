@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="#fff">
+    android:orientation="vertical"
+    android:backgroundTint="@color/material_on_surface_emphasis_high_type"
+    android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp" />
 
-        <TextView
-            android:text="⚖️ Legal &amp; Financial Help"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnGoToInsurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_to_insurance_claim"
+        android:layout_marginBottom="12dp" />
 
-        <TextView
-            android:text="• Free legal aid is available at district legal services authority offices.\n• Contact helpline: 15100\n• NGOs providing legal counseling: SaveIndia Trust, JusticeForYou.org\n• Financial aid schemes: CM Relief Fund, PM Flood Relief Scheme"
-            android:textSize="16sp"
-            android:lineSpacingExtra="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/btnFinancialHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/financial_help" />
+
+    <Button
+        android:id="@+id/btnMedicalHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🩺 Medical Help"
+        android:textSize="18sp"
+        android:backgroundTint="#FF6666"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnBankingHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/banking_help"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="#03A9F4"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

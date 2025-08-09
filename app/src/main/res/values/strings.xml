@@ -1,10 +1,61 @@
 <resources>
-    <string name="app_name">EchoCrisisMain</string>
+    <string name="app_name">EchoCrisisMain</string> <!-- Using the second file's app_name -->
+    <string name="describe_the_damage">Describe the damage</string>
+    <string name="upload_photos_receipts">Upload Photos/Receipts</string>
+    <string name="download_claim_letter_template">Download Claim Letter Template</string>
+    <string name="submit_claim">Submit Claim</string>
+    <string name="go_to_insurance_claim_assistant">DashBoard</string>
+    <string name="no_text_detected_in_the_image">No text detected in the image.</string>
+    <string name="upload_documents">Upload Documents</string>
+    <string name="go_to_insurance_claim">Go to Insurance Claim</string>
+    <string name="welcome">Welcome</string>
+    <string name="claim_type">Claim Type:</string>
+    <string name="name">Name:</string>
+    <string name="policy_no">Policy No:</string>
+    <string name="description">Description:</string>
+    <string name="back">Back</string>
+    <string name="financial_help">Financial Help</string>
+    <string name="financial_help_information_will_be_shown_here">Financial Help Information will be shown here.</string>
+    <string name="providing_disaster_relief_materials_and_livelihood_support">Providing disaster relief materials and livelihood support.</string>
+    <string name="visit_website">Visit Website</string>
+    <string name="giveindia">GiveIndia</string>
+    <string name="fundraising_platform_for_urgent_disaster_and_health_aid">Fundraising platform for urgent disaster and health aid.</string>
+    <string name="seeds_india">SEEDS India</string>
+    <string name="rebuilding_homes_schools_and_providing_disaster_relief">Rebuilding homes, schools and providing disaster relief.</string>
+    <string name="crowdfunding_platforms">Crowdfunding Platforms</string>
+    <string name="ketto">Ketto</string>
+    <string name="crowdfunding_for_medical_disaster_and_social_causes">Crowdfunding for medical, disaster and social causes.</string>
+    <string name="milaap">Milaap</string>
+    <string name="community_driven_fundraising_platform_for_social_impact">Community-driven fundraising platform for social impact.</string>
+    <string name="impactguru">ImpactGuru</string>
+    <string name="large_scale_campaigns_for_disaster_and_medical_help">Large-scale campaigns for disaster and medical help.</string>
+    <string name="medical_help">Medical Help</string>
+    <string name="medical_help_information_will_be_shown_here">Medical Help Information will be shown here.</string>
+    <string name="find_nearest_csc_common_service_centre">Find Nearest CSC (Common Service Centre)</string>
+    <string name="set_up_upi_receive_relief_payments"><![CDATA[Set Up UPI & Receive Relief Payments]]></string>
+    <string name="locate_nearest">Locate Nearest</string>
+    <string name="aadhaar_linking">Aadhaar Linking</string>
+    <string name="link_aadhaar_with_bank_account">Link Aadhaar with Bank Account</string>
+    <string name="upi_setup">UPI Setup</string>
+    <string name="bank_mitra">Bank Mitra</string>
+    <string name="find_nearest_bank_mitra">Find Nearest Bank Mitra</string>
+    <string name="csc_locator">CSC Locator</string>
+    <string name="banking_help_support">banking_help_support</string>
+    <string name="simple_guides">simple_guides</string>
+    <string name="banking_help">🏦 Banking Help</string>
+    <string name="loan_assistance_and_disaster_relief_loans">Loan Assistance</string>
+
+    <string-array name="insurance_types">
+        <item>Crop</item>
+        <item>Vehicle</item>
+        <item>Home</item>
+        <item>Health</item>
+    </string-array>
+
     <string-array name="gender_array">
         <item>Select Gender</item>
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>
     </string-array>
-
 </resources>

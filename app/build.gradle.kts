@@ -127,6 +127,9 @@ dependencies {
     // System UI Controller for status bar
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
     implementation(libs.firebase.database)
+    implementation(libs.vision.common)
+    implementation(libs.play.services.mlkit.text.recognition.common)
+    implementation(libs.play.services.mlkit.text.recognition)
 
     // Testing dependencies
     testImplementation(libs.junit)
