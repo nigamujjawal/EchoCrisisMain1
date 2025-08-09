@@ -2,18 +2,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uj.echocrisismain">
 
-    <!-- Internet permission for Firebase or network access -->
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="EchoCrisis"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EchoCrisis">
 
-        <!-- Launcher Activity: Login -->
+        <!-- Welcome Screen (after login) -->
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+
+        <!-- Government Schemes Screen -->
+        <activity
+            android:name=".SchemeActivity"
+            android:exported="false"
+            android:label="Government Schemes" />
+
+        <!-- Chat Activity -->
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+
+        <!-- Login Activity (Launcher) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -24,58 +43,41 @@
             </intent-filter>
         </activity>
 
-        <!-- Register screen -->
+        <!-- Register/Profile Setup/Profile View -->
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:label="Register" />
-
-        <!-- Profile Setup screen -->
         <activity
             android:name=".ProfileSetupActivity"
             android:exported="false"
             android:label="Profile Setup" />
-
-        <!-- Profile Viewing screen -->
         <activity
             android:name=".ProfileActivity"
             android:exported="false"
             android:label="Profile" />
 
-        <!-- Emergency Contact screen -->
-        <activity
-            android:name=".EmergencyContact"
-            android:exported="false"
-            android:label="Emergency Contact" />
-
-        <!-- MainActivity2: Welcome / intermediate screen -->
+        <!-- Intermediate Welcome (if used) -->
         <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:label="Welcome" />
 
-        <!-- ✅ Dashboard screen (Where 4 buttons are shown) -->
+        <!-- Dashboard (with 4 buttons) -->
         <activity
             android:name=".DashboardActivity"
             android:exported="false"
             android:label="Dashboard" />
 
-        <!-- 4 Functional Screens -->
+        <!-- 4 Button Target Screens -->
         <activity
             android:name=".MentalSupportActivity"
             android:exported="false"
             android:label="Mental Support" />
-
         <activity
             android:name=".LegalHelpActivity"
             android:exported="false"
             android:label="Legal Help" />
-
-        <activity
-            android:name=".SchemeActivity"
-            android:exported="false"
-            android:label="Government Schemes" />
-
         <activity
             android:name=".ShelterActivity"
             android:exported="false"

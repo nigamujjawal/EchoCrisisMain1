@@ -57,16 +57,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkUserProfile(String uid) {
-        // ✅ Firestore collection "users" with document uid
         db.collection("users").document(uid).get()
                 .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        // 🔁 Profile exists – go to Dashboard
-                        startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                    } else {
-                        // 👤 First time – go to Profile Setup
-                        startActivity(new Intent(LoginActivity.this, ProfileSetupActivity.class));
-                    }
+                    Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                    intent.putExtra("profileExists", documentSnapshot.exists());
+                    startActivity(intent);
                     finish();
                 })
                 .addOnFailureListener(e -> {

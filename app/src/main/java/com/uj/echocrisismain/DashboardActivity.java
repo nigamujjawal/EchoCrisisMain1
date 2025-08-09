@@ -26,7 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         btnMentalSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, MentalSupportActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, ChatActivity.class);
                 startActivity(intent);
             }
         });

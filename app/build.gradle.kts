@@ -122,6 +122,7 @@ dependencies {
     implementation("androidx.camera:camera-camera2:1.3.1")
     implementation("androidx.camera:camera-lifecycle:1.3.1")
     implementation("androidx.camera:camera-view:1.3.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     // System UI Controller for status bar
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")

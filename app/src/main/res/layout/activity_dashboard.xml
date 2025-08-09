@@ -27,7 +27,7 @@
         android:id="@+id/btnLegalHelp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Legal Help"
+        android:text="Help"
         android:layout_marginTop="16dp" />
 
     <Button

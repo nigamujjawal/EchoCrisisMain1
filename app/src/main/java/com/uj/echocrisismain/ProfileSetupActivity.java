@@ -101,9 +101,12 @@ public class ProfileSetupActivity extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Profile saved successfully", Toast.LENGTH_SHORT).show();
 
-                    // 🔁 Go to DashboardActivity
-                    Intent intent = new Intent(ProfileSetupActivity.this, DashboardActivity.class);
-                    intent.putExtra("username", profile.name); // optional welcome message
+                    // Sign out current user to force login again
+                    FirebaseAuth.getInstance().signOut();
+
+                    // Go to LoginActivity
+                    Intent intent = new Intent(ProfileSetupActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
                 })
